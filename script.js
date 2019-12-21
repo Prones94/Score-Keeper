@@ -12,6 +12,7 @@ pOneButton.addEventListener("click", function(){
     if(!gameOver){
         pOneScore++;
         if(pOneScore === winningScore){
+            playerOneScore.classList.add("winner");
             gameOver = true;
         };
         playerOneScore.textContent = pOneScore;
@@ -21,12 +22,18 @@ pTwoButton.addEventListener("click", function(){
     if(!gameOver){
         pTwoScore++;
         if(pTwoScore === winningScore) {
+            playerTwoScore.classList.add("winner")
             gameOver = true;
         };
         playerTwoScore.textContent = pTwoScore;
     }
 });
 resetButton.addEventListener("click", function(){
-    pOneScore.textContent = 0;
-    pTwoScore.textContent = 0
+    gameOver = false;
+    pOneScore = 0;
+    pTwoScore = 0;
+    playerOneScore.textContent = 0;
+    playerTwoScore.textContent = 0;
+    playerOneScore.classList.remove("winner");
+    playerTwoScore.classList.remove("winner")
 });
